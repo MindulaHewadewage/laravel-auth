@@ -19,7 +19,13 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 
 Route::get('/', [GuestHomeController::class, 'index']);
 
-Route::get('/admin', [AdminHomeController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.home');
+// rotta admin
+Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
+    // home utente loggato
+    Route::get('/admin', [AdminHomeController::class, 'index']);
+    // rotte dei project
+    Route::resource('projects', ProjectController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
