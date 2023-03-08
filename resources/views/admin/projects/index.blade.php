@@ -6,8 +6,9 @@
 
 @section('content')
 
-    <header>
+    <header class="d-flex justify-content-between my-4">
         <h1>Projects</h1>
+        <a class="btn btn-success" href="{{ route('admin.projects.create') }}">Add Project</a>
     </header>
 
     <main>
