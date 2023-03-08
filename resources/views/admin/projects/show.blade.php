@@ -23,7 +23,7 @@
             <div class="card-buttons d-flex align-items-center">
                 <a class="btn btn-secondary" href="{{ route('admin.projects.index') }}"><i
                         class="fa-sharp fa-solid fa-rotate-left"></i></a>
-                <a class="btn btn-warning mx-2" href="{{ route('admin.projects.index') }}"><i
+                <a class="btn btn-warning mx-2" href="{{ route('admin.projects.edit', $project->id) }}"><i
                         class="fa-solid fa-pen-to-square"></i></a>
                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
                     @csrf
