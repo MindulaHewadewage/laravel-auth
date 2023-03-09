@@ -22,7 +22,8 @@
                             the
                             card's content.</p> --}}
                         @if ($project->image)
-                            <img class="index-img my-3" src="{{ $project->image }}" alt="{{ $project->title }}">
+                            <img class="index-img my-3" src="{{ asset('storage/' . $project->image) }}"
+                                alt="{{ $project->title }}">
                         @endif
                         <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">Details</a>
                     </div>

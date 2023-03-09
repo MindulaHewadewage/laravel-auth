@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
@@ -31,8 +33,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $data = $request->all();
         $project = new Project();
+
+        if (Arr::exists($data, 'image')) {
+            if ($project->image) Storage::delete($project->image);
+            $img_url = Storage::put('projects', $data['image']);
+            $data['image'] = $img_url;
+        }
+
         $project->fill($data);
         $project->save();
         return to_route('admin.projects.show', $project->id);

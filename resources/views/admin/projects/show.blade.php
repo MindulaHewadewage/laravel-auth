@@ -11,7 +11,7 @@
 
     <main class="d-flex">
         <div class="project-image ">
-            <img class="show-img me-5" src="{{ $project->image }}" alt="{{ $project->title }}">
+            <img class="show-img me-5" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
         </div>
         <div class="project-description">
             <div class="card-text">

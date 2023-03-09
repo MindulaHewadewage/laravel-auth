@@ -10,7 +10,7 @@
     </header>
 
 
-    <form action="{{ route('admin.projects.store') }}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             {{-- TITLE --}}
@@ -32,12 +32,18 @@
             </div>
 
             {{-- IMAGE --}}
-            <div class="col-12">
+            <div class="col-10">
                 <div class="mb-3">
                     <label for="image" class="form-label">Image:</label>
-                    <input type="url" class="form-control" id="image" placeholder="Choose an image" name="image"
+                    <input type="file" class="form-control" id="image" placeholder="Choose an image" name="image"
                         value="{{ old('image') }}">
                 </div>
+            </div>
+
+            <div class="col-2">
+                <img class="img-preview "
+                    src="{{ $project->image ? asset('storage/' . $project->image) : 'https://marcolanci.it/utils/placeholder.png' }}"
+                    alt="">
             </div>
 
             {{-- CONTENT --}}
