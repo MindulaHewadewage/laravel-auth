@@ -43,7 +43,8 @@
 
             <div class="col-2">
                 <div class="mb-3">
-                    <img src="{{ $project->image ? asset('storage/' . $project->image) : 'https://marcolanci.it/utils/placeholder.png' }}"
+                    <img class="img-preview "
+                        src="{{ $project->image ? asset('storage/' . $project->image) : 'https://marcolanci.it/utils/placeholder.png' }}"
                         alt="">
 
                 </div>

@@ -32,7 +32,7 @@
             </div>
 
             {{-- IMAGE --}}
-            <div class="col-10">
+            <div class="col-11">
                 <div class="mb-3">
                     <label for="image" class="form-label">Image:</label>
                     <input type="file" class="form-control" id="image" placeholder="Choose an image" name="image"
@@ -40,9 +40,10 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            {{-- PLACEHOLDER --}}
+            <div class="col-1">
                 <img class="img-preview "
-                    src="{{ $project->image ? asset('storage/' . $project->image) : 'https://marcolanci.it/utils/placeholder.png' }}"
+                    src="{{ $project->image ? asset('storage/' . $project->image) : 'https://www.studioandreaciucci.it/wp-content/uploads/2017/12/placeholder.png' }}"
                     alt="">
             </div>
 
